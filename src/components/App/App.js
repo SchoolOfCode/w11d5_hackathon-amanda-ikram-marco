@@ -1,14 +1,20 @@
 import logo from "./soc-logo.svg";
-import "./App.css";
+import css from "./App.module.css"
 import PokemonViewer from "../PokemonViewer";
+import { FightButton } from "../Button";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" width="100px" />
+    <div className={css.App}>
+      <header className={css.AppHeader}>
+        <img src={logo} className={css.AppLogo} alt="logo" width="100px" />
         <p>Hackathon Friday</p>
+        <div className={css.PokeDiv}>
         <PokemonViewer />
+        <FightButton />
+        <PokemonViewer />
+        </div>
+        
       </header>
     </div>
   );
