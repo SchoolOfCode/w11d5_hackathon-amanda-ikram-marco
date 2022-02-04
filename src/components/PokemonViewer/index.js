@@ -1,13 +1,17 @@
 import { useFetch } from "../../hooks/useFetch.js";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 
 function PokemonViewer() {
+  const { isAuthenticated } = useAuth0();
   const { id, data, handleChange } = useFetch(
     `https://pokeapi.co/api/v2/pokemon/`
   );
   console.log(data)
  
   return (
+    isAuthenticated && (
     <section>
       <h4>Pokemon</h4>
       <input type="number" onChange={handleChange} value={id} />
@@ -16,6 +20,7 @@ function PokemonViewer() {
       <img src= {data.sprites ? data.sprites.front_default : ''}alt= ""></img>
      
     </section>
+    )
   );
 }
 

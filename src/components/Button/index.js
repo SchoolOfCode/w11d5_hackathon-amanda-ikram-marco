@@ -1,10 +1,13 @@
 import React from 'react';
 // import { useState } from 'react';
 // import { useFetch } from '../../hooks/useFetch';
-import 'antd/dist/antd.css'
+//mport '../../../node_modules/antd/dist/antd'
 import { Button } from 'antd';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const FightButton = () => {
+  const { isAuthenticated } = useAuth0();
+  
 //     const[statA, setStatA] = useState();
 //     const[statB, setStatB] = useState();
 
@@ -13,6 +16,7 @@ export const FightButton = () => {
        
 //    }
   return (
+    isAuthenticated && (
   <Button type="primary">FIGHT!</Button>
-  )
+  ))
 };
